@@ -10,27 +10,21 @@ jobs:
     runs-on: ubuntu-22.04
 
     steps:
-    - uses: actions/checkout@v3
+    - uses: actions/checkout@v4
 
     - name: Get Date
       id: get-date
       run: |
         echo "date=$(date -u +'%Y%m%d_%H%M%S')" >> $GITHUB_ENV
 
-    - name: Cache Buildozer global directory
-      uses: actions/cache@v3
-      with:
-        path: ~/.buildozer
-        key: buildozer-global-${{ hashFiles('buildozer.spec') }}
-
     - name: Build with Buildozer
-      uses: ArtemSnd/buildozer-action@v1.2
+      uses: ArtemSnd/buildozer-action@v1
       with:
         command: buildozer android debug
         subfolder: .
 
     - name: Upload APK Artifact
-      uses: actions/upload-artifact@v3
+      uses: actions/upload-artifact@v4
       with:
         name: MedicineApp-APK
         path: bin/*.apk
