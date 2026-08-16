@@ -12,13 +12,8 @@ jobs:
     steps:
     - uses: actions/checkout@v4
 
-    - name: Get Date
-      id: get-date
-      run: |
-        echo "date=$(date -u +'%Y%m%d_%H%M%S')" >> $GITHUB_ENV
-
     - name: Build with Buildozer
-      uses: ArtemSnd/buildozer-action@v1
+      uses: akshayaurora/buildozer-action@v1.2.0
       with:
         command: buildozer android debug
         subfolder: .
