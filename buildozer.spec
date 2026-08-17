@@ -16,7 +16,7 @@ android.permissions = INTERNET
 
 # Let Buildozer manage SDK/NDK automatically
 android.accept_sdk_license = True
-android.archs = arm64-v8a, armeabi-v7a
+android.archs = arm64-v8a
 
 [buildozer]
 log_level = 2
